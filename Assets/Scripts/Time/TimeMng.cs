@@ -39,6 +39,7 @@ public class TimeMng : MonoBehaviour
             timeScale -=0.1f;
             if(timeScale<=0){
                 timeScale = 0;
+                CanvasMainMng.HourglassPannel.InitTime((int)timeWait);
                 Invoke("StartTime",timeWait);
                 StopCoroutine(coroutine);
             }
@@ -61,6 +62,7 @@ public class TimeMng : MonoBehaviour
             if(timeScale>=1){
                 isTimeActived = false;
                 timeScale = 1;
+                CanvasMainMng.HourglassPannel.ActiveOrDesactiveElements(false);
                 StopCoroutine(coroutine);
             }
         }
