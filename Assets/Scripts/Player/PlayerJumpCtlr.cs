@@ -14,19 +14,20 @@ public class PlayerJumpCtlr : MonoBehaviour
     [SerializeField] float groundDistance = 0.4f;
     [Header("Os layermasks que irão permitir o pulo")]
     [SerializeField] LayerMask groundMask;
-    // Update is called once per frame
+    
+    public bool isGrounded;
     void FixedUpdate()
     {
+        isGrounded = Physics.CheckSphere(groundCheck.position,groundDistance,groundMask);
         Jump();
     }
-
     /// <summary>
     /// Efetua o pulo do player
     /// </summary>
     void Jump(){
         if(Input.GetButtonDown("Jump")){
-            bool isGrounded = Physics.CheckSphere(groundCheck.position,groundDistance,groundMask);
             if(isGrounded){
+                PlayerMng.PlayerAnimation.PlayFall();
                 PlayerMng.Instance.RigidbodyPlayer.velocity = new Vector3(PlayerMng.Instance.RigidbodyPlayer.velocity.x, 0, PlayerMng.Instance.RigidbodyPlayer.velocity.z);
                 PlayerMng.Instance.RigidbodyPlayer.AddForce(Vector3.up*forceJump*Time.deltaTime);
             }

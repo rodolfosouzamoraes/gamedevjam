@@ -9,11 +9,13 @@ public class PlayerMng : MonoBehaviour
     public static  PlayerMng Instance;
     public static PlayerMoveCtlr PlayerMove;
     public static PlayerJumpCtlr PlayerJump;
+    public static PlayerAnimationCtlr PlayerAnimation;
     void Awake()
     {
         if(Instance==null){
             PlayerMove = GetComponent<PlayerMoveCtlr>();
             PlayerJump = GetComponent<PlayerJumpCtlr>();
+            PlayerAnimation = GetComponent<PlayerAnimationCtlr>();
             Instance = this;
         }
         else{

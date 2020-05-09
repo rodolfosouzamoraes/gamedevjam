@@ -31,6 +31,20 @@ public class PlayerMoveCtlr : MonoBehaviour
         if (direction != Vector3.zero) {
             PlayerMng.Instance.RigidbodyPlayer.AddForce(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+            if(PlayerMng.PlayerJump.isGrounded){
+                PlayerMng.PlayerAnimation.PlayRun();
+            }
+            else{
+                PlayerMng.PlayerAnimation.PlayFall();
+            }
+        }
+        else{
+            if(PlayerMng.PlayerJump.isGrounded){
+                PlayerMng.PlayerAnimation.PlayIdle();
+            }
+            else{
+                PlayerMng.PlayerAnimation.PlayFall();
+            }
         }
     }
 }
