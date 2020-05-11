@@ -12,11 +12,13 @@ public class TimeBarPannelCtlr : MonoBehaviour
     [Header("Imagem da time bar")]
     [SerializeField] Image imgTimeBar;
     public int qtdTimeBar;
+    private int qtdTImeBarOriginal;
     // Start is called before the first frame update
     void Start()
     {
         qtdTimeBar = sptTimeBars.Length -1;
         imgTimeBar.sprite = sptTimeBars[qtdTimeBar];
+        qtdTImeBarOriginal = qtdTimeBar;
     }
     /// <summary>
     /// Consome a barra do tempo
@@ -27,5 +29,16 @@ public class TimeBarPannelCtlr : MonoBehaviour
             qtdTimeBar = 0;
         }
         imgTimeBar.sprite = sptTimeBars[qtdTimeBar];
+    }
+
+    public bool IncreaseTimeBar(){
+        if(qtdTimeBar+1<=qtdTImeBarOriginal){
+            qtdTimeBar+=1;
+            imgTimeBar.sprite = sptTimeBars[qtdTimeBar];
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
