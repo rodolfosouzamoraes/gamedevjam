@@ -1,72 +1,37 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public abstract class EnemyMovement : MonoBehaviour
 {
-    private float timeAux;
-    private NavMeshAgent meshAgent;
-    private int index;
-    private bool isStopped = false;
+    protected NavMeshAgent meshAgent;
+    public float WalkingSpeed { get; protected set; }
+    public float ChasingSpeed { get; protected set; }
+    public float CurrentSpeed { get; protected set; }
+    public EnemyMovementStatus status { get; set; }
 
-    [SerializeField] private Transform[] wayPoints;
-    [SerializeField] private float distanceToSetNewDestination = 0.5f;
-    [SerializeField] private float walkingSpeed = 3.5f;
-    [SerializeField] private float chasingSpeed = 6.5f;
-    [SerializeField] private float stopTime = 3f;
-
-    public static float CurrentSpeed { get; private set; }
-
-    void Start()
+    private void Update()
     {
-        timeAux = stopTime;
-        meshAgent = GetComponent<NavMeshAgent>();
-        index = 0;
-    }
-
-    void Update()
-    {
-        if (isStopped)
+        switch (status)
         {
-            Stop();
-        }
-        else
-        {
-            Move();
-        }
+            case EnemyMovementStatus.Walk:
+                SetSpeed(WalkingSpeed);
+                Walk();
+                break;
 
-    }
-
-    private void Move()
-    {
-        SetSpeed(walkingSpeed);
-        meshAgent.SetDestination(wayPoints[index].position);
-
-        if (meshAgent.remainingDistance < distanceToSetNewDestination)
-        {
-            index++;
-            index %= wayPoints.Length;
-            isStopped = true;
+            case EnemyMovementStatus.Chase:
+                SetSpeed(ChasingSpeed);
+                Chase();
+                break;
         }
     }
 
-    private void Stop()
+    public abstract void Walk();
+    public void Chase()
     {
-        SetSpeed(0);
-        stopTime -= Time.deltaTime;
-        if(stopTime <= 0)
-        {
-            stopTime = timeAux;
-            isStopped = false;
-        }
+        meshAgent.SetDestination(PlayerMng.Instance.transform.position);
     }
 
-    private void Chase(Transform player)
-    {
-        SetSpeed(chasingSpeed);
-        meshAgent.SetDestination(player.position);
-    }
-
-    private void SetSpeed(float value)
+    public void SetSpeed(float value)
     {
         meshAgent.speed = value /** TimeMng.Instance.timeScale*/;
         CurrentSpeed = meshAgent.speed;

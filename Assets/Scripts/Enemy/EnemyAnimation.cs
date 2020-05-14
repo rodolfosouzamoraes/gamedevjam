@@ -3,14 +3,16 @@
 public class EnemyAnimation : MonoBehaviour
 {
     private Animator animator;
+    private EnemyMovement enemyMovement;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     private void Update()
     {
-        animator.SetInteger("Speed", (int)EnemyMovement.CurrentSpeed /** (int)TimeMng.Instance.timeScale*/);
+        animator.SetInteger("Speed", (int)enemyMovement.CurrentSpeed /** (int)TimeMng.Instance.timeScale*/);
     }
 }
