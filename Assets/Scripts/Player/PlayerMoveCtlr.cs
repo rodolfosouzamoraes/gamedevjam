@@ -6,45 +6,63 @@ using UnityEngine;
 /// </summary>
 public class PlayerMoveCtlr : MonoBehaviour
 {
-    [Header("Velocidade de movimentação")]
-    [SerializeField] float moveSpeed;
     [Header("Velocidade de rotação")]
     [SerializeField] float rotateSpeed;
+    [Header("Velocidade de movimentação")]
+    public float speed = 6.0f;
+    [Header("Velocidade de pulo")]
+    public float jumpSpeed = 8.0f;
+    [Header("Valor da gravidade")]
+    public float gravity = 20.0f;
+
+    private Vector3 moveDirection = Vector3.zero;
+    CharacterController characterController;
+
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+        Movimentation();
+    }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        PlayerMng.Instance.RigidbodyPlayer.velocity = new Vector3(0, PlayerMng.Instance.RigidbodyPlayer.velocity.y, 0);
-        Move();
+        Movimentation();
     }
 
-    void Move(){
+    void Movimentation(){
         var vertical = Camera.main.transform.forward * Input.GetAxis("Vertical");
         var horizontal = Camera.main.transform.right * Input.GetAxis("Horizontal");
 
         vertical.y = 0;
+        var moveDirectionYBefore = moveDirection.y;
+        moveDirection = horizontal + vertical;
+        moveDirection *= speed;
 
-        var direction = horizontal + vertical;
+        
+        if(moveDirection!= Vector3.zero){
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(moveDirection), rotateSpeed * Time.deltaTime);
+        }
 
-        direction = direction.normalized * moveSpeed * Time.deltaTime;
-
-        if (direction != Vector3.zero) {
-            PlayerMng.Instance.RigidbodyPlayer.AddForce(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            if(PlayerMng.PlayerJump.isGrounded){
+        moveDirection.y = moveDirectionYBefore;
+        if (characterController.isGrounded)
+        {
+            if(moveDirection.x!= 0 && moveDirection.z!=0){
                 PlayerMng.PlayerAnimation.PlayRun();
             }
             else{
-                PlayerMng.PlayerAnimation.PlayFall();
+                PlayerMng.PlayerAnimation.PlayIdle();
+            }
+            if (Input.GetButton("Jump"))
+            {
+                moveDirection.y = jumpSpeed;
             }
         }
         else{
-            if(PlayerMng.PlayerJump.isGrounded){
-                PlayerMng.PlayerAnimation.PlayIdle();
-            }
-            else{
-                PlayerMng.PlayerAnimation.PlayFall();
-            }
+            PlayerMng.PlayerAnimation.PlayFall();
         }
+
+        moveDirection.y -= gravity * Time.deltaTime;
+        characterController.Move(moveDirection * Time.deltaTime);
     }
 }
