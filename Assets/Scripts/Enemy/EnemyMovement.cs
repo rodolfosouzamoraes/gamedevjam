@@ -9,6 +9,11 @@ public abstract class EnemyMovement : MonoBehaviour
     public float CurrentSpeed { get; protected set; }
     public EnemyMovementStatus status { get; set; }
 
+    private void Start()
+    {
+        status = EnemyMovementStatus.Walk;
+    }
+
     private void Update()
     {
         switch (status)
@@ -33,7 +38,7 @@ public abstract class EnemyMovement : MonoBehaviour
 
     public void SetSpeed(float value)
     {
-        meshAgent.speed = value /** TimeMng.Instance.timeScale*/;
+        meshAgent.speed = value * TimeMng.Instance.timeScale;
         CurrentSpeed = meshAgent.speed;
     }
 }
