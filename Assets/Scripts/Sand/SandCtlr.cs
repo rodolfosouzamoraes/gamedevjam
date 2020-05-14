@@ -11,7 +11,7 @@ public class SandCtlr : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime /** TimeMng.Instance.timeScale*/);
+        transform.Translate(Vector3.up * speed * Time.deltaTime * TimeMng.Instance.timeScale);
     }
 
     private void OnTriggerEnter(Collider other)
