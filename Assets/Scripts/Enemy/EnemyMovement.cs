@@ -39,6 +39,12 @@ public abstract class EnemyMovement : MonoBehaviour
     public void SetSpeed(float value)
     {
         meshAgent.speed = value * TimeMng.Instance.timeScale;
+        if(TimeMng.Instance.timeScale>0){
+            meshAgent.enabled = true;   
+        }
+        else{
+            meshAgent.enabled = false; 
+        }
         CurrentSpeed = meshAgent.speed;
     }
 }

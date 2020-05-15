@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnimatorCtlr : MonoBehaviour
+public class AnimatorTimeCtlr : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     void Update()

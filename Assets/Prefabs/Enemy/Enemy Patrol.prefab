@@ -1115,6 +1115,7 @@ GameObject:
   - component: {fileID: 9041722181948639312}
   - component: {fileID: 150577920122225741}
   - component: {fileID: 1245585368}
+  - component: {fileID: 6789646531309854085}
   m_Layer: 0
   m_Name: Enemy Patrol
   m_TagString: Untagged
@@ -1228,6 +1229,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6789646531309854085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783563462218004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd3a68c126fe50a49adb45c7ab9c8716, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95319451835724688}
 --- !u!1 &1804318802084684
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,12 +19,13 @@ public class EnemyPatrolMovement : EnemyMovement
 
     public override void Walk()
     {
-        meshAgent.SetDestination(wayPoints[index].position);
-
-        if (meshAgent.remainingDistance < distanceNewDestination)
-        {
-            index++;
-            index %= wayPoints.Length;
+        if(meshAgent.enabled){
+            meshAgent.SetDestination(wayPoints[index].position);
+            if (meshAgent.remainingDistance < distanceNewDestination)
+            {
+                index++;
+                index %= wayPoints.Length;
+            }
         }
     }
 }

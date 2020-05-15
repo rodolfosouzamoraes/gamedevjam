@@ -13,6 +13,6 @@ public class EnemyAnimation : MonoBehaviour
 
     private void Update()
     {
-        animator.SetInteger("Speed", (int)enemyMovement.CurrentSpeed * (int)TimeMng.Instance.timeScale);
+        animator.SetInteger("Speed", (int)enemyMovement.CurrentSpeed);
     }
 }
