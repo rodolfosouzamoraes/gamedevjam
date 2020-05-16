@@ -73,16 +73,23 @@ public class CanvasMainMng : MonoBehaviour
     /// Ativa o painel de vitória
     /// </summary>
     public void ShowWin(){
-        isEndGame = true;
+        //Salvar a cena completada
+        EndGame();
         pnlWin.SetActive(true);
     }
     /// <summary>
     /// Ativa o game over
     /// </summary>
     public void ShowGameOverPannel(){
+        EndGame();
+        pnlGameOver.SetActive(true);
+    }
+    /// <summary>
+    /// Finaliza as interações no jogo
+    /// </summary>
+    void EndGame(){
         isEndGame = true;
         PlayerMng.GameObjectPlayer.SetActive(false);
-        pnlGameOver.SetActive(true);
     }
     /// <summary>
     /// Reinicia a cena
