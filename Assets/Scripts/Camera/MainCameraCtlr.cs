@@ -10,7 +10,9 @@ public class MainCameraCtlr : MonoBehaviour
     [SerializeField] float speedRotation;
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, PlayerMng.Instance.TransformPlayer.position, 5f*Time.deltaTime);
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * speedRotation);
+        if(!CanvasMainMng.Instance.isGameOver){
+            transform.position = Vector3.Lerp(transform.position, PlayerMng.Instance.TransformPlayer.position, 5f*Time.deltaTime);
+            transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X"), 0) * Time.deltaTime * speedRotation);
+        }
     }
 }

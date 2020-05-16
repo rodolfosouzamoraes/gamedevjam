@@ -6,7 +6,10 @@ public class SandCtlr : MonoBehaviour
 
     private void Update()
     {
-        Move();
+        if(!CanvasMainMng.Instance.isGameOver){
+            Move();
+        }
+        
     }
 
     private void Move()
@@ -16,6 +19,8 @@ public class SandCtlr : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Ativar game over
+        CanvasMainMng.Instance.isGameOver = true;
+        other.gameObject.SetActive(false);
+        CanvasMainMng.Instance.ShowGameOverPannel();
     }
 }

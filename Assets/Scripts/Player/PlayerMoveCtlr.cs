@@ -17,6 +17,7 @@ public class PlayerMoveCtlr : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.zero;
     CharacterController characterController;
+    
 
     void Start()
     {
@@ -27,7 +28,9 @@ public class PlayerMoveCtlr : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Movimentation();
+        if(!CanvasMainMng.Instance.isGameOver){
+            Movimentation();
+        }
     }
 
     void Movimentation(){
