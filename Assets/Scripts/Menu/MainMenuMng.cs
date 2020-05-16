@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 /// <summary>
 /// Classe Responsável por gerenciar os painéis do menu
 /// </summary>
@@ -11,6 +12,7 @@ public class MainMenuMng : MonoBehaviour
     void Start()
     {
         if(Instance == null){
+            ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
             Instance = this;
         }
         else{
@@ -40,5 +42,9 @@ public class MainMenuMng : MonoBehaviour
     /// </summary>
     public void QuitAplication(){
         Application.Quit();
+    }
+
+    public void LoadLevel(int index){
+        SceneManager.LoadScene(index);
     }
 }
