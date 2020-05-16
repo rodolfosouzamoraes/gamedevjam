@@ -11,11 +11,14 @@ public class CanvasMainMng : MonoBehaviour
     public static HourglassPannelCtlr HourglassPannel;
     public static TimeBarPannelCtlr TimeBarPannel;
     public static GameOverPannelCtlr GameOverPannel;
+
+    public static int indexScene;
     // Start is called before the first frame update
     void Awake()
     {
         if(Instance==null){
             Time.timeScale = 1;
+            indexScene = SceneManager.GetActiveScene().buildIndex;
             HourglassPannel = FindObjectOfType<HourglassPannelCtlr>();
             TimeBarPannel = FindObjectOfType<TimeBarPannelCtlr>();
             GameOverPannel = FindObjectOfType<GameOverPannelCtlr>();
@@ -72,8 +75,8 @@ public class CanvasMainMng : MonoBehaviour
     /// <summary>
     /// Ativa o painel de vitória
     /// </summary>
-    public void ShowWin(){
-        //Salvar a cena completada
+    public void ShowWinPannel(){
+        PlayerPrefs.SetInt("Level_"+(indexScene+1),1);
         EndGame();
         pnlWin.SetActive(true);
     }
@@ -95,7 +98,7 @@ public class CanvasMainMng : MonoBehaviour
     /// Reinicia a cena
     /// </summary>
     public void RestartLevel(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(indexScene);
     }
     /// <summary>
     /// Volta para a cena do menu

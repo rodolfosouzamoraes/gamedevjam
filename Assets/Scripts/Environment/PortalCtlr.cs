@@ -11,7 +11,7 @@ public class PortalCtlr : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player")){
-            CanvasMainMng.Instance.ShowWin();
+            CanvasMainMng.Instance.ShowWinPannel();
         }
     }
 }

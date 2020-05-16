@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using UnityEngine.SceneManagement;
+
 /// <summary>
 /// Classe Responsável por gerenciar os painéis do menu
 /// </summary>
@@ -12,6 +12,7 @@ public class MainMenuMng : MonoBehaviour
     void Start()
     {
         if(Instance == null){
+            PlayerPrefs.SetInt("Level_1",1);
             Time.timeScale = 1;
             ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
             Instance = this;
@@ -20,6 +21,7 @@ public class MainMenuMng : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
     [Header("Painéis do menu")]
     [SerializeField] List<PannelCtlr> pannels = new List<PannelCtlr>(); 
 
@@ -43,9 +45,5 @@ public class MainMenuMng : MonoBehaviour
     /// </summary>
     public void QuitAplication(){
         Application.Quit();
-    }
-
-    public void LoadLevel(int index){
-        SceneManager.LoadScene(index);
     }
 }

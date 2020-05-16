@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 10334285}
   - component: {fileID: 10334284}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -450,17 +450,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -2173,17 +2162,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -3258,7 +3236,7 @@ GameObject:
   - component: {fileID: 689751181}
   - component: {fileID: 689751180}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3488,7 +3466,7 @@ GameObject:
   - component: {fileID: 741695432}
   - component: {fileID: 741695431}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3682,17 +3660,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -3700,6 +3667,17 @@ MonoBehaviour:
             m_ObjectArgument: {fileID: 1674765708}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
             m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1865364079}
+          m_MethodName: LoadLevel
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -3883,7 +3861,7 @@ GameObject:
   - component: {fileID: 808082610}
   - component: {fileID: 808082609}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4106,7 +4084,7 @@ GameObject:
   - component: {fileID: 836559898}
   - component: {fileID: 836559897}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4370,17 +4348,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -4392,7 +4359,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 682688940}
+        - m_Target: {fileID: 1865364079}
           m_MethodName: LoadLevel
           m_Mode: 3
           m_Arguments:
@@ -5046,17 +5013,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -6080,7 +6036,7 @@ GameObject:
   - component: {fileID: 1184180183}
   - component: {fileID: 1184180182}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6347,17 +6303,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -6599,17 +6544,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -6946,7 +6880,7 @@ GameObject:
   - component: {fileID: 1492154009}
   - component: {fileID: 1492154008}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7637,7 +7571,7 @@ GameObject:
   - component: {fileID: 1684975861}
   - component: {fileID: 1684975860}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8188,7 +8122,7 @@ GameObject:
   - component: {fileID: 1812527560}
   - component: {fileID: 1812527559}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8406,6 +8340,7 @@ GameObject:
   - component: {fileID: 1865364076}
   - component: {fileID: 1865364077}
   - component: {fileID: 1865364078}
+  - component: {fileID: 1865364079}
   m_Layer: 5
   m_Name: LevelsPnl
   m_TagString: Untagged
@@ -8460,6 +8395,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idPannel: 1
+--- !u!114 &1865364079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865364075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 583a6dc78372df34ca9dff5f3f60b5df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sptLocked: {fileID: 21300000, guid: 2b97d007fef6987499d1f1c24f44772c, type: 3}
+  sptOpen: {fileID: 21300000, guid: 80aac2fc955f04546a69e7698ec92d01, type: 3}
+  imgPadlockLevels:
+  - {fileID: 689751180}
+  - {fileID: 1184180182}
+  - {fileID: 1492154008}
+  - {fileID: 741695431}
+  - {fileID: 1812527559}
+  - {fileID: 836559897}
+  - {fileID: 808082609}
+  - {fileID: 10334284}
+  - {fileID: 1684975860}
+  - {fileID: 1946755434}
 --- !u!1 &1866183366
 GameObject:
   m_ObjectHideFlags: 0
@@ -8553,17 +8513,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -8852,7 +8801,7 @@ GameObject:
   - component: {fileID: 1946755435}
   - component: {fileID: 1946755434}
   m_Layer: 5
-  m_Name: Image
+  m_Name: imgPadlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8969,17 +8918,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
@@ -9085,17 +9023,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1865364077}
-            m_ObjectArgumentAssemblyTypeName: PannelCtlr, Assembly-CSharp
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
         - m_Target: {fileID: 682688941}
           m_MethodName: Normalize
           m_Mode: 2
