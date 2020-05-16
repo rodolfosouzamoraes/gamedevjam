@@ -12,6 +12,7 @@ public class MainMenuMng : MonoBehaviour
     void Start()
     {
         if(Instance == null){
+            Time.timeScale = 1;
             ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
             Instance = this;
         }

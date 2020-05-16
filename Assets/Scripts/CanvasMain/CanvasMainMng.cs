@@ -15,6 +15,7 @@ public class CanvasMainMng : MonoBehaviour
     void Awake()
     {
         if(Instance==null){
+            Time.timeScale = 1;
             HourglassPannel = FindObjectOfType<HourglassPannelCtlr>();
             TimeBarPannel = FindObjectOfType<TimeBarPannelCtlr>();
             GameOverPannel = FindObjectOfType<GameOverPannelCtlr>();
@@ -27,7 +28,34 @@ public class CanvasMainMng : MonoBehaviour
     }
 
     [SerializeField] GameObject pnlGameOver;
+    [SerializeField] GameObject pnlPause;
     public bool isGameOver = false;
+    public bool isPauseActived;
+
+    void Update()
+    {
+        if(Input.GetButtonDown("Pause")){
+            if(!isPauseActived){
+                isPauseActived = !isPauseActived;
+                ShowPausePannel();
+                Time.timeScale = 0;
+            }
+            else{
+                HidePausePannel();
+            }
+            
+        }
+    }
+    public void ShowPausePannel(){
+        pnlPause.SetActive(true);
+    }
+
+    public void HidePausePannel(){
+        isPauseActived = !isPauseActived;
+        Time.timeScale = 1;
+        pnlPause.SetActive(false);
+    }
+
     public void ShowGameOverPannel(){
         pnlGameOver.SetActive(true);
     }
