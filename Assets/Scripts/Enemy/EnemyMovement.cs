@@ -33,7 +33,9 @@ public abstract class EnemyMovement : MonoBehaviour
     public abstract void Walk();
     public void Chase()
     {
-        meshAgent.SetDestination(PlayerMng.Instance.transform.position);
+        if(meshAgent.enabled){
+            meshAgent.SetDestination(PlayerMng.Instance.transform.position);
+        }
     }
 
     public void SetSpeed(float value)
