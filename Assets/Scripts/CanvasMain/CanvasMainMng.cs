@@ -29,11 +29,21 @@ public class CanvasMainMng : MonoBehaviour
 
     [SerializeField] GameObject pnlGameOver;
     [SerializeField] GameObject pnlPause;
-    public bool isGameOver = false;
+    [SerializeField] GameObject pnlWin;
+    public bool isEndGame = false;
     public bool isPauseActived;
 
     void Update()
     {
+        if(!isEndGame){
+            CheckPauseButton();
+        }
+        
+    }
+    /// <summary>
+    /// Verifica se o pause foi acionado
+    /// </summary>
+    void CheckPauseButton(){
         if(Input.GetButtonDown("Pause")){
             if(!isPauseActived){
                 isPauseActived = !isPauseActived;
@@ -43,26 +53,46 @@ public class CanvasMainMng : MonoBehaviour
             else{
                 HidePausePannel();
             }
-            
         }
     }
+    /// <summary>
+    /// Mostra o painel de pause
+    /// </summary>
     public void ShowPausePannel(){
         pnlPause.SetActive(true);
     }
-
+    /// <summary>
+    /// Desativa o painel de pause
+    /// </summary>
     public void HidePausePannel(){
         isPauseActived = !isPauseActived;
         Time.timeScale = 1;
         pnlPause.SetActive(false);
     }
-
+    /// <summary>
+    /// Ativa o painel de vitória
+    /// </summary>
+    public void ShowWin(){
+        isEndGame = true;
+        pnlWin.SetActive(true);
+    }
+    /// <summary>
+    /// Ativa o game over
+    /// </summary>
     public void ShowGameOverPannel(){
+        isEndGame = true;
+        PlayerMng.GameObjectPlayer.SetActive(false);
         pnlGameOver.SetActive(true);
     }
-
+    /// <summary>
+    /// Reinicia a cena
+    /// </summary>
     public void RestartLevel(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+    /// <summary>
+    /// Volta para a cena do menu
+    /// </summary>
     public void ExitLevel(){
         SceneManager.LoadScene(0);
     }

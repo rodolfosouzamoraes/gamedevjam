@@ -28,7 +28,7 @@ public class PlayerMoveCtlr : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(!CanvasMainMng.Instance.isGameOver){
+        if(!CanvasMainMng.Instance.isEndGame){
             Movimentation();
         }
     }
