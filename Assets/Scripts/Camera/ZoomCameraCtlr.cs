@@ -6,6 +6,10 @@ using UnityEngine;
 /// </summary>
 public class ZoomCameraCtlr : MonoBehaviour
 {
+    [Header("Camera Environment")]
+    [SerializeField] Camera cameraEnviroment;
+    [Header("Camera Environment")]
+    [SerializeField] Camera cameraPlayer;
     [Header("Zoom Máximo")]
     [SerializeField] float maxZoom;
     [Header("Zoom Minimo")]
@@ -40,7 +44,8 @@ public class ZoomCameraCtlr : MonoBehaviour
         else if (Input.GetKey (KeyCode.Mouse2))
         {
             zoomCamera = zoomCameraOriginal;
-            Camera.main.fieldOfView = zoomCamera;
+            cameraEnviroment.fieldOfView = zoomCamera;
+            cameraPlayer.fieldOfView = zoomCamera;
         }
     }
     /// <summary>
@@ -48,6 +53,7 @@ public class ZoomCameraCtlr : MonoBehaviour
     /// </summary>
     void Zoom(){
         zoomCamera = Mathf.Clamp(zoomCamera, minZoom, maxZoom);
-        Camera.main.fieldOfView = zoomCamera;
+        cameraEnviroment.fieldOfView = zoomCamera;
+        cameraPlayer.fieldOfView = zoomCamera;
     }
 }
