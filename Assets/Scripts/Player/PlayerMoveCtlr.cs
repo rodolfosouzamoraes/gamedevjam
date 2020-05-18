@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerMoveCtlr : MonoBehaviour
 {
+    private bool isPlayingRunAudio = false;
     [Header("Velocidade de rotação")]
     [SerializeField] float rotateSpeed;
     [Header("Velocidade de movimentação")]
@@ -52,12 +53,21 @@ public class PlayerMoveCtlr : MonoBehaviour
         {
             if(moveDirection.x!= 0 && moveDirection.z!=0){
                 PlayerMng.PlayerAnimation.PlayRun();
+                if(!isPlayingRunAudio)
+                {
+                    AudioManager.Instance.Play(Audio.Player, Clip.Run, true);
+                    isPlayingRunAudio = true;
+                }
             }
             else{
                 PlayerMng.PlayerAnimation.PlayIdle();
+                AudioManager.Instance.Stop(Audio.Player);
+                isPlayingRunAudio = false;
             }
             if (Input.GetButton("Jump"))
             {
+                AudioManager.Instance.Play(Audio.Player, Clip.Jump, false);
+                isPlayingRunAudio = false;
                 moveDirection.y = jumpSpeed;
             }
         }

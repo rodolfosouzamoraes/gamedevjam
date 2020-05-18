@@ -2,7 +2,8 @@
 {
     Music,
     SlowMotion,
-    Walk,
+    Run,
     Jump,
-    Victory
+    Victory,
+    GameOver
 }

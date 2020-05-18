@@ -6,7 +6,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource[] sources;
     [SerializeField] private AudioClip[] clips;
-    public AudioManager Instance 
+    public static AudioManager Instance 
     {
         get
         {
@@ -30,5 +30,10 @@ public class AudioManager : MonoBehaviour
         sources[(int)audio].clip = clips[(int)clip];
         sources[(int)audio].loop = isLooping;
         sources[(int)audio].Play();
+    }
+
+    public void Stop(Audio audio)
+    {
+        sources[(int)audio].Stop();
     }
 }
