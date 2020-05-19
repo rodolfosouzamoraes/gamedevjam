@@ -6,7 +6,6 @@ using UnityEngine;
 /// </summary>
 public class PlayerMoveCtlr : MonoBehaviour
 {
-    private bool isPlayingRunAudio = false;
     [Header("Velocidade de rotação")]
     [SerializeField] float rotateSpeed;
     [Header("Velocidade de movimentação")]
@@ -17,6 +16,7 @@ public class PlayerMoveCtlr : MonoBehaviour
     public float gravity = 20.0f;
 
     private Vector3 moveDirection = Vector3.zero;
+    private bool isPlayingRunAudio = false;
     CharacterController characterController;
     
 

@@ -76,7 +76,8 @@ public class CanvasMainMng : MonoBehaviour
     /// Ativa o painel de vitória
     /// </summary>
     public void ShowWinPannel(){
-        AudioManager.Instance.Play(Audio.Soundtrack, Clip.Victory, false);
+        AudioManager.Instance.LowerVolumes();
+        AudioManager.Instance.Play(Audio.EndGame, Clip.Victory, false);
         PlayerPrefs.SetInt("Level_"+(indexScene+1),1);
         EndGame();
         pnlWin.SetActive(true);
@@ -85,7 +86,8 @@ public class CanvasMainMng : MonoBehaviour
     /// Ativa o game over
     /// </summary>
     public void ShowGameOverPannel(){
-        AudioManager.Instance.Play(Audio.Soundtrack, Clip.GameOver, false);
+        AudioManager.Instance.LowerVolumes();
+        AudioManager.Instance.Play(Audio.EndGame, Clip.GameOver, false);
         EndGame();
         pnlGameOver.SetActive(true);
     }

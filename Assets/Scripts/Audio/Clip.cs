@@ -5,5 +5,6 @@
     Run,
     Jump,
     Victory,
-    GameOver
+    GameOver,
+    SlowMotionRevert
 }

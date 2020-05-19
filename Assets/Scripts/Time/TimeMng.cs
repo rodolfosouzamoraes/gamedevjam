@@ -26,7 +26,7 @@ public class TimeMng : MonoBehaviour
     /// Inicia o processo de parar o tempo
     /// </summary>
     public void StopTime(){
-        AudioManager.Instance.Play(Audio.Soundtrack, Clip.SlowMotion, false);
+        AudioManager.Instance.Play(Audio.Effect, Clip.SlowMotion, false);
         isTimeActived = true;
         coroutine = StartCoroutine(StopTimeSlowly());
     }
@@ -50,7 +50,7 @@ public class TimeMng : MonoBehaviour
     /// Inicia o processo de startar o tempo
     /// </summary>
     public void StartTime(){
-        AudioManager.Instance.Play(Audio.Soundtrack, Clip.Music, true);
+        AudioManager.Instance.Play(Audio.Effect, Clip.SlowMotionRevert, false);
         coroutine = StartCoroutine(StartTimeSlowly());
     }
     /// <summary>

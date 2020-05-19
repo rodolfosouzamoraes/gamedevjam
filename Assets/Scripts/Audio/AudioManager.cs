@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager instance;
 
-    [SerializeField] private AudioSource[] sources;
+    
     [SerializeField] private AudioClip[] clips;
+    private AudioSource[] sources;
     public static AudioManager Instance 
     {
         get
@@ -22,7 +24,15 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        Play(Audio.Soundtrack, Clip.Music, true);
+        sources = GetComponents<AudioSource>();
+        Play(Audio.Environment, Clip.Music, true);
+    }
+    void Update()
+    {
+        if(!CanvasMainMng.Instance.isEndGame){
+            ChangeVolume(Audio.Environment, TimeMng.Instance.timeScale);
+        }
+        
     }
 
     public void Play(Audio audio, Clip clip, bool isLooping)
@@ -35,5 +45,22 @@ public class AudioManager : MonoBehaviour
     public void Stop(Audio audio)
     {
         sources[(int)audio].Stop();
+    }
+
+    void ChangeVolume(Audio audio, float volume){
+        sources[(int)audio].volume = volume;
+    }
+
+    public void LowerVolumes(){
+        StartCoroutine(LowerVolume(Audio.Environment));
+        StartCoroutine(LowerVolume(Audio.Effect));
+        StartCoroutine(LowerVolume(Audio.Player));
+    }
+
+    public IEnumerator LowerVolume(Audio audio){
+        while(sources[(int)audio].volume !=0){
+            sources[(int)audio].volume -=0.1f;
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

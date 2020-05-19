@@ -1,5 +1,7 @@
 ﻿public enum Audio 
 {
-    Soundtrack,
-    Player
+    Effect,
+    Player,
+    Environment,
+    EndGame
 }
