@@ -20,12 +20,15 @@ public class EnemyHunterMovement : EnemyMovement
 
     public override void Walk()
     {
-        if (meshAgent.remainingDistance <= distanceNewDestination)
+        if (meshAgent.enabled)
         {
-            randomPosition = GetRandomPosition();
-        }
+            if (meshAgent.remainingDistance <= distanceNewDestination)
+            {
+                randomPosition = GetRandomPosition();
+            }
 
-        meshAgent.SetDestination(randomPosition);
+            meshAgent.SetDestination(randomPosition);
+        }
     }
 
     private Vector3 GetRandomPosition()
