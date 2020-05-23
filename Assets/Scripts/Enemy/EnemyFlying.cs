@@ -2,35 +2,39 @@
 
 public class EnemyFlying : MonoBehaviour
 {
-    private Vector3 right;
-    private Vector3 left;
-    private Vector3 direction = Vector3.zero;
-    [SerializeField] private float flyingSpeed = 1f;
+    private Animator animator;
+    private Vector3 posRight;
+    private Vector3 posLeft;
+    private Vector3 target;
+    [SerializeField] private float flyingSpeed = 5f;
     [SerializeField] private float distance = 4f;
 
     private void Start()
     {
-        right = Vector3.forward * distance;
-        left = - Vector3.forward * distance;
-        direction = right;
+        animator = GetComponent<Animator>();
+        posRight = transform.position + (transform.forward * distance);
+        posLeft = transform.position + (-transform.forward * distance);
+        target = posRight;
     }
 
     private void Update()
     {
         Fly();
+        animator.speed = TimeMng.Instance.timeScale;
     }
     private void Fly()
     {
-        //if (transform.position.z == right.z)
-        //{
-        //    direction = left;
-        //}
-        //else if (transform.position.z == left.z)
-        //{
-        //    direction = right;
-        //}
+        if (transform.position == posRight)
+        {
+            target = posLeft;
+            transform.forward *= -1;
+        }
+        else if (transform.position == posLeft)
+        {
+            target = posRight;
+            transform.forward *= -1;
+        }
 
-        transform.position += direction * Time.deltaTime * flyingSpeed;
-        transform.LookAt(direction);
+        transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * flyingSpeed * TimeMng.Instance.timeScale);
     }
 }
