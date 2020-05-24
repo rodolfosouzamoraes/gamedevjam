@@ -8,7 +8,7 @@ public class ZoomCameraCtlr : MonoBehaviour
 {
     [Header("Camera Environment")]
     [SerializeField] Camera cameraEnviroment;
-    [Header("Camera Environment")]
+    [Header("Camera Player")]
     [SerializeField] Camera cameraPlayer;
     [Header("Zoom Máximo")]
     [SerializeField] float maxZoom;
