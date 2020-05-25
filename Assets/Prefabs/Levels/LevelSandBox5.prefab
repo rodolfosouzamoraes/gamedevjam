@@ -5989,7 +5989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9fd2ce668ebfd4595da06fc0c9921f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionEnd: {x: 20.25, y: 12.5, z: -11.25}
+  positionEnd: {x: 20.25, y: 10.77, z: -11.25}
   speedMovimentation: 10
   timerWait: 1
 --- !u!54 &3683904945513060747
