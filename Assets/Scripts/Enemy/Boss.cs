@@ -14,25 +14,16 @@ public class Boss : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        rotation = transform.rotation.y;
+        rotation = transform.eulerAngles.y;
         attackTime = Random.Range(1, maxSecondsToAttack);
     }
     private void Update()
     {
-        UpdateHeight();
         FlyAround();
 
-        if(isAttacking)
+        if (isAttacking)
         {
             Attack();
-        }
-    }
-
-    private void UpdateHeight()
-    {
-        foreach (var waypoint in waypoints)
-        {
-            waypoint.position = new Vector3(waypoint.position.x, PlayerMng.Instance.transform.position.y, waypoint.position.z);
         }
     }
 
@@ -40,14 +31,15 @@ public class Boss : MonoBehaviour
     {
         if (!isAttacking)
         {
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[index].position, speed * Time.deltaTime);
+            Vector3 target = new Vector3(waypoints[index].position.x, PlayerMng.Instance.transform.position.y, waypoints[index].position.z);
+            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-            if (transform.position == waypoints[index].position)
+            if (HasReachedWaypoint())
             {
                 index++;
                 index %= waypoints.Length;
                 rotation += 90;
-                transform.rotation = Quaternion.Euler(transform.rotation.x, rotation, transform.rotation.z);
+                transform.rotation = Quaternion.Euler(transform.eulerAngles.x, rotation, transform.eulerAngles.z);
             }
         }
     }
@@ -67,6 +59,11 @@ public class Boss : MonoBehaviour
 
     private void Attack()
     {
-        
+
+    }
+
+    private bool HasReachedWaypoint()
+    {
+        return Mathf.Approximately(transform.position.x, waypoints[index].position.x) && Mathf.Approximately(transform.position.z, waypoints[index].position.z);
     }
 }
