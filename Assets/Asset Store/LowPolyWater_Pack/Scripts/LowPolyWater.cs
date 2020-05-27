@@ -63,7 +63,7 @@ namespace LowPolyWater
         
         void Update()
         {
-            Debug.Log(Time.time);
+            //Debug.Log(Time.time);
             if(TimeMng.Instance.timeScale>0){
                 GenerateWaves();
             }

@@ -17,7 +17,7 @@ public class LevelsPannelCtlr : MonoBehaviour
     {
         int count = 1;
         foreach(Image imgPadlock in imgPadlockLevels){
-            Debug.Log("Level "+count +", "+PlayerPrefs.GetInt("Level_"+count));
+            //Debug.Log("Level "+count +", "+PlayerPrefs.GetInt("Level_"+count));
             if(PlayerPrefs.GetInt("Level_"+count) == 1){
                 imgPadlock.sprite = sptOpen;
             }else{

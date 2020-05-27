@@ -30,7 +30,7 @@ public class MainMenuMng : MonoBehaviour
     /// </summary>
     /// <param name="pannel">Painel a ser aberto</param>
     public void ShowPannel(PannelCtlr pannel){
-        Debug.Log("Cliquei");
+        //Debug.Log("Cliquei");
         var pannelShow = pannels.FirstOrDefault(p => p.Compare(pannel));
         if(pannelShow!=null){
             foreach(PannelCtlr pnl in pannels){
