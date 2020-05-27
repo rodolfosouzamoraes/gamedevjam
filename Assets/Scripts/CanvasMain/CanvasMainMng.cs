@@ -11,6 +11,7 @@ public class CanvasMainMng : MonoBehaviour
     public static HourglassPannelCtlr HourglassPannel;
     public static TimeBarPannelCtlr TimeBarPannel;
     public static GameOverPannelCtlr GameOverPannel;
+    public static TutorialPannelCtlr TutorialPannel;
 
     public static int indexScene;
     // Start is called before the first frame update
@@ -22,6 +23,8 @@ public class CanvasMainMng : MonoBehaviour
             HourglassPannel = FindObjectOfType<HourglassPannelCtlr>();
             TimeBarPannel = FindObjectOfType<TimeBarPannelCtlr>();
             GameOverPannel = FindObjectOfType<GameOverPannelCtlr>();
+            TutorialPannel = FindObjectOfType<TutorialPannelCtlr>();
+            HideTutorial();
             Instance = this;
         }
         else
@@ -33,6 +36,7 @@ public class CanvasMainMng : MonoBehaviour
     [SerializeField] GameObject pnlGameOver;
     [SerializeField] GameObject pnlPause;
     [SerializeField] GameObject pnlWin;
+    [SerializeField] GameObject pnlTutorial;
     public bool isEndGame = false;
     public bool isPauseActived;
 
@@ -109,5 +113,15 @@ public class CanvasMainMng : MonoBehaviour
     /// </summary>
     public void ExitLevel(){
         SceneManager.LoadScene(0);
+    }
+
+    public void ShowTutorial(string message){
+        pnlTutorial.SetActive(true);
+        TutorialPannel.SetMessage(message);
+    }
+
+    public void HideTutorial(){
+        TutorialPannel.SetMessage(" ");
+        pnlTutorial.SetActive(false);
     }
 }
