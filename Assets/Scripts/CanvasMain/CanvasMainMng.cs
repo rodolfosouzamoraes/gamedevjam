@@ -111,8 +111,7 @@ public class CanvasMainMng : MonoBehaviour
     /// Atualiza o tempo gasto ao completar a fase se o mesmo for maior que o anterior
     /// </summary>
     void UpdateTimerLevel(){
-        float timerLevel = PlayerPrefs.GetFloat("Level_"+(indexScene)+"_Timer");
-        Debug.Log(timerLevel+ " "+TimeBarPannel.timer);
+        float timerLevel = PlayerPrefs.GetFloat("Level_"+(indexScene)+"_Timer") == 0 ?  Mathf.Infinity : PlayerPrefs.GetFloat("Level_"+(indexScene)+"_Timer");
         if(timerLevel>TimeBarPannel.timer){
             PlayerPrefs.SetFloat("Level_"+(indexScene)+"_Timer",TimeBarPannel.timer);
             WinPannel.SetTimerText(TimeBarPannel.timer,TimeBarPannel.timer);

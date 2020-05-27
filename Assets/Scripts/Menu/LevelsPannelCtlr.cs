@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,20 +9,25 @@ public class LevelsPannelCtlr : MonoBehaviour
 {
     [SerializeField] Sprite sptLocked;
     [SerializeField] Sprite sptOpen;
-    [SerializeField] Image[] imgPadlockLevels; 
+    [SerializeField] ItemLevel[] itemsLevel; 
 
     /// <summary>
     /// This function is called when the object becomes enabled and active.
     /// </summary>
     void OnEnable()
     {
-        int count = 1;
-        foreach(Image imgPadlock in imgPadlockLevels){
-            //Debug.Log("Level "+count +", "+PlayerPrefs.GetInt("Level_"+count));
-            if(PlayerPrefs.GetInt("Level_"+count) == 1){
-                imgPadlock.sprite = sptOpen;
+        int count = 0;
+        foreach(ItemLevel itemLevel in itemsLevel){
+            if(PlayerPrefs.GetInt("Level_"+(count+1)) == 1){
+                itemLevel.sptLocked.SetActive(false);
+                var timer = PlayerPrefs.GetFloat("Level_"+(count+1)+"_Timer");
+                var ts = TimeSpan.FromSeconds(timer);
+                itemLevel.txtTimerLevel.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+                itemLevel.txtTimerLevelBack.text = itemLevel.txtTimerLevel.text;
             }else{
-                imgPadlock.sprite = sptLocked;
+                itemLevel.sptLocked.SetActive(true);
+                itemLevel.txtTimerLevel.text = "";
+                itemLevel.txtTimerLevelBack.text = "";
             }
             count++;
         }
