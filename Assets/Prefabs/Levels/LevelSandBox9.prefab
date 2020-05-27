@@ -2036,19 +2036,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5000006, y: 1.5000051, z: 1.5000052}
   m_Center: {x: 0, y: 0, z: 0.00000035762787}
---- !u!65 &2485537070194655065
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2268569125214063380}
-  m_Material: {fileID: 13400000, guid: bbf61eb241f24804ca28849edaf4c1e3, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5000006, y: 1.5000051, z: 1.5000052}
-  m_Center: {x: 0, y: 0, z: 0.00000035762787}
 --- !u!54 &7053450203384206462
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2065,6 +2052,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &2485537070194655065
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2268569125214063380}
+  m_Material: {fileID: 13400000, guid: bbf61eb241f24804ca28849edaf4c1e3, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5000006, y: 1.5000051, z: 1.5000052}
+  m_Center: {x: 0, y: 0, z: 0.00000035762787}
 --- !u!54 &5244850042702485268
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19011,7 +19011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d081ac4db0a74f94b9b310f683002446, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.25
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d081ac4db0a74f94b9b310f683002446, type: 3}
       propertyPath: m_LocalPosition.y

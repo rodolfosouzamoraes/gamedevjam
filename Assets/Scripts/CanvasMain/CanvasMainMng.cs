@@ -12,6 +12,7 @@ public class CanvasMainMng : MonoBehaviour
     public static TimeBarPannelCtlr TimeBarPannel;
     public static GameOverPannelCtlr GameOverPannel;
     public static TutorialPannelCtlr TutorialPannel;
+    public static WinPannelCtlr WinPannel;
 
     public static int indexScene;
     // Start is called before the first frame update
@@ -24,7 +25,9 @@ public class CanvasMainMng : MonoBehaviour
             TimeBarPannel = FindObjectOfType<TimeBarPannelCtlr>();
             GameOverPannel = FindObjectOfType<GameOverPannelCtlr>();
             TutorialPannel = FindObjectOfType<TutorialPannelCtlr>();
+            WinPannel = FindObjectOfType<WinPannelCtlr>();
             HideTutorial();
+            HideWin();
             Instance = this;
         }
         else
@@ -84,6 +87,7 @@ public class CanvasMainMng : MonoBehaviour
         AudioManager.Instance.Play(Audio.EndGame, Clip.Victory, false);
         PlayerPrefs.SetInt("Level_"+(indexScene+1),1);
         EndGame();
+        UpdateTimerLevel();
         pnlWin.SetActive(true);
     }
     /// <summary>
@@ -101,6 +105,21 @@ public class CanvasMainMng : MonoBehaviour
     void EndGame(){
         isEndGame = true;
         PlayerMng.GameObjectPlayer.SetActive(false);
+        TimeBarPannel.isCountTimer = false;
+    }
+    /// <summary>
+    /// Atualiza o tempo gasto ao completar a fase se o mesmo for maior que o anterior
+    /// </summary>
+    void UpdateTimerLevel(){
+        float timerLevel = PlayerPrefs.GetFloat("Level_"+(indexScene)+"_Timer") == 0 ?  Mathf.Infinity : PlayerPrefs.GetFloat("Level_"+(indexScene)+"_Timer");
+        if(timerLevel>TimeBarPannel.timer){
+            PlayerPrefs.SetFloat("Level_"+(indexScene)+"_Timer",TimeBarPannel.timer);
+            WinPannel.SetTimerText(TimeBarPannel.timer,TimeBarPannel.timer);
+        }
+        else{
+            WinPannel.SetTimerText(TimeBarPannel.timer,timerLevel);
+        }
+        
     }
     /// <summary>
     /// Reinicia a cena
@@ -123,5 +142,9 @@ public class CanvasMainMng : MonoBehaviour
     public void HideTutorial(){
         TutorialPannel.SetMessage(" ");
         pnlTutorial.SetActive(false);
+    }
+
+    public void HideWin(){
+        pnlWin.SetActive(false);
     }
 }
