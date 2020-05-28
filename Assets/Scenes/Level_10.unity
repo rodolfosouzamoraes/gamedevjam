@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stonesAmount: 5
-  stonePrefab: {fileID: 965439390049441312, guid: f004a60c7d6909e41909afc641c2c419,
+  stonePrefab: {fileID: 3734637626145462325, guid: f004a60c7d6909e41909afc641c2c419,
     type: 3}
   aim: {fileID: 1155327810}
 --- !u!4 &438712827 stripped
@@ -647,7 +647,7 @@ PrefabInstance:
     - target: {fileID: 4845126567445691487, guid: d2afaecaa30d79548bd51b770a162a07,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4845126567445691487, guid: d2afaecaa30d79548bd51b770a162a07,
         type: 3}
@@ -2022,7 +2022,7 @@ PrefabInstance:
     - target: {fileID: 39279321913035825, guid: a0811e660fb92614fb374a5c74e4ff7f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 39279321913035825, guid: a0811e660fb92614fb374a5c74e4ff7f,
         type: 3}
