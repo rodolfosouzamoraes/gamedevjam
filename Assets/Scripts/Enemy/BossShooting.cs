@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 
 public class BossShooting : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class BossShooting : MonoBehaviour
     {
         for (int i = 0; i < stonesAmount; i++)
         {
-            GameObject stone = Instantiate(stonePrefab, aim.position, Quaternion.identity, aim);
+            GameObject stone = Instantiate(stonePrefab, aim.position, aim.localRotation, aim);
             stone.SetActive(false);
             stones.Add(stone);
         }
@@ -41,6 +40,6 @@ public class BossShooting : MonoBehaviour
     public void ReturnStoneToAim(GameObject stone)
     {
         stone.transform.position = aim.position;
-        stone.transform.rotation = Quaternion.identity;
+        stone.transform.localRotation = aim.localRotation;
     }
 }

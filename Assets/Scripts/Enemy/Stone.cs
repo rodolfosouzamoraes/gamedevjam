@@ -25,6 +25,7 @@ public class Stone : MonoBehaviour
     private void OnDisable()
     {
         bossShooting.ReturnStoneToAim(gameObject);
+        rb.velocity = Vector3.zero;
     }
 
     private void Update()
@@ -37,7 +38,7 @@ public class Stone : MonoBehaviour
 
     public void Shoot()
     {
-        rb.AddForce(transform.parent.forward * speed);
+        rb.AddForce(transform.parent.forward * speed, ForceMode.Impulse);
     }
 
     private void CheckCountdown()
