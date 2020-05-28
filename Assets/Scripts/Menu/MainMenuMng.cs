@@ -9,11 +9,15 @@ using System.Linq;
 public class MainMenuMng : MonoBehaviour
 {
     public static MainMenuMng Instance;
+    public static CharacterPannelCtlr CharacterPannel;
     void Start()
     {
         if(Instance == null){
+            //PlayerPrefs.SetInt("CristalScore",1000);
             PlayerPrefs.SetInt("Level_1",1);
+            PlayerPrefs.SetInt("IdBodyChosen_0",1);
             Time.timeScale = 1;
+            CharacterPannel = characterPnl.GetComponent<CharacterPannelCtlr>();
             ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
             Instance = this;
         }
@@ -24,6 +28,7 @@ public class MainMenuMng : MonoBehaviour
     
     [Header("Painéis do menu")]
     [SerializeField] List<PannelCtlr> pannels = new List<PannelCtlr>(); 
+    [SerializeField] GameObject characterPnl;
 
     /// <summary>
     /// Habilita o painel desejado
