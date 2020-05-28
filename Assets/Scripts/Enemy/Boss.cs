@@ -23,12 +23,13 @@ public class Boss : MonoBehaviour
     {
         FlyAround();
         CheckAttackCountdown();
+        animator.speed = TimeMng.Instance.timeScale;
     }
 
     private void FlyAround()
     {
-        Vector3 target = new Vector3(waypoints[index].position.x, PlayerMng.Instance.transform.position.y + 5f, waypoints[index].position.z); ;
-        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        Vector3 target = new Vector3(waypoints[index].position.x, PlayerMng.Instance.transform.position.y + 2f, waypoints[index].position.z); ;
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime * TimeMng.Instance.timeScale);
 
         if (HasReachedWaypoint())
         {
@@ -41,17 +42,19 @@ public class Boss : MonoBehaviour
 
     private void CheckAttackCountdown()
     {
-        timeToAttack -= Time.deltaTime;
-
-        if (timeToAttack <= 0)
+        if (TimeMng.Instance.timeScale > 0)
         {
-            Attack();
+            timeToAttack -= Time.deltaTime;
+
+            if (timeToAttack <= 0)
+            {
+                Attack();
+            }
         }
     }
 
     private void Attack()
     {
-        animator.SetTrigger("Attack");
         AudioManager.Instance.Play(Audio.Boss, Clip.Eagle, false);
         bossShooting.Shoot();
         timeToAttack = timeAux;

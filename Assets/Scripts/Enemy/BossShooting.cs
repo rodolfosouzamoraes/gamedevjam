@@ -5,7 +5,7 @@ public class BossShooting : MonoBehaviour
 {
     private int index = 0;
     private List<GameObject> stones = new List<GameObject>();
-    [SerializeField] private int stonesAmount = 10;
+    [SerializeField] private int stonesAmount = 5;
     [SerializeField] private GameObject stonePrefab;
     [SerializeField] private Transform aim;
 

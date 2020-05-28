@@ -93,7 +93,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b87495a6b91dfd4bb898cc929cef6f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  timeToDisable: 4
+  force: 20
+  timeToDisable: 5
 --- !u!64 &7933209159834927999
 MeshCollider:
   m_ObjectHideFlags: 0

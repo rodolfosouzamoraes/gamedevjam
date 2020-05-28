@@ -6,8 +6,9 @@ public class Stone : MonoBehaviour
     private Rigidbody rb;
     private float timeAux;
     private bool isReadyToCountdown = false;
-    [SerializeField] private float speed = 5f;
-    [SerializeField] private float timeToDisable = 4f;
+    private bool isShooting = false;
+    [SerializeField] private float force = 20f;
+    [SerializeField] private float timeToDisable = 5f;
 
     private void Awake()
     {
@@ -19,38 +20,61 @@ public class Stone : MonoBehaviour
     private void OnEnable()
     {
         isReadyToCountdown = true;
-        Shoot();
+        isShooting = true;
     }
 
     private void OnDisable()
     {
+        timeToDisable = timeAux;
+        isReadyToCountdown = false;
+        isShooting = false;
         bossShooting.ReturnStoneToAim(gameObject);
         rb.velocity = Vector3.zero;
     }
 
     private void Update()
     {
-        if(isReadyToCountdown)
+        if (isReadyToCountdown)
         {
             CheckCountdown();
+        }
+
+        if (isShooting)
+        {
+            CheckTimeScale();
+            Shoot();
+        }
+    }
+
+    private void CheckTimeScale()
+    {
+        if (TimeMng.Instance.timeScale > 0)
+        {
+            rb.useGravity = true;
+            rb.freezeRotation = false;
+        }
+        else
+        {
+            rb.useGravity = false;
+            rb.freezeRotation = true;
         }
     }
 
     public void Shoot()
     {
-        rb.AddForce(transform.parent.forward * speed, ForceMode.Impulse);
+        rb.velocity = transform.parent.forward * force * TimeMng.Instance.timeScale;
     }
 
     private void CheckCountdown()
     {
-        timeToDisable -= Time.deltaTime;
-
-        if(timeToDisable <= 0)
+        if (TimeMng.Instance.timeScale > 0)
         {
-            timeToDisable = timeAux;
-            isReadyToCountdown = false;
-            gameObject.SetActive(false);
+            timeToDisable -= Time.deltaTime;
+
+            if (timeToDisable <= 0)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
-
 }
