@@ -4,38 +4,42 @@ using UnityEngine;
 
 public class PlayerAnimationCtlr : MonoBehaviour
 {
-    [SerializeField] Animator animator;
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
+    [SerializeField] Animator[] animator;
+    [SerializeField] GameObject[] bodys;
+    int idBody = 0;
     void Start()
     {
+        idBody = PlayerPrefs.GetInt("IdBodyChosen");
+        foreach(GameObject body in bodys){
+            body.SetActive(false);
+        }
+        bodys[idBody].SetActive(true);
+        
         PlayIdle();
     }
     public void PlayIdle(){
-        animator.SetBool("run",false);
-        animator.SetBool("fall",false);
-        animator.SetBool("idle",true);
-        animator.SetBool("death",false);
+        animator[idBody].SetBool("run",false);
+        animator[idBody].SetBool("fall",false);
+        animator[idBody].SetBool("idle",true);
+        animator[idBody].SetBool("death",false);
     }
 
     public void PlayFall(){
-        animator.SetBool("run",false);
-        animator.SetBool("fall",true);
-        animator.SetBool("idle",false);
-        animator.SetBool("death",false);
+        animator[idBody].SetBool("run",false);
+        animator[idBody].SetBool("fall",true);
+        animator[idBody].SetBool("idle",false);
+        animator[idBody].SetBool("death",false);
     }
     public void PlayRun(){
-        animator.SetBool("run",true);
-        animator.SetBool("fall",false);
-        animator.SetBool("idle",false);
-        animator.SetBool("death",false);
+        animator[idBody].SetBool("run",true);
+        animator[idBody].SetBool("fall",false);
+        animator[idBody].SetBool("idle",false);
+        animator[idBody].SetBool("death",false);
     }
     public void PlayDeath(){
-        animator.SetBool("run",false);
-        animator.SetBool("fall",false);
-        animator.SetBool("idle",false);
-        animator.SetBool("death",true);
+        animator[idBody].SetBool("run",false);
+        animator[idBody].SetBool("fall",false);
+        animator[idBody].SetBool("idle",false);
+        animator[idBody].SetBool("death",true);
     }
 }
