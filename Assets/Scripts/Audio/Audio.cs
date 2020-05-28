@@ -3,5 +3,6 @@
     Effect,
     Player,
     Environment,
-    EndGame
+    EndGame,
+    Boss
 }
