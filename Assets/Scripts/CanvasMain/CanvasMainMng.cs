@@ -88,6 +88,7 @@ public class CanvasMainMng : MonoBehaviour
         PlayerPrefs.SetInt("Level_"+(indexScene+1),1);
         EndGame();
         UpdateTimerLevel();
+        UpdateCristalScore();
         pnlWin.SetActive(true);
     }
     /// <summary>
@@ -120,6 +121,13 @@ public class CanvasMainMng : MonoBehaviour
             WinPannel.SetTimerText(TimeBarPannel.timer,timerLevel);
         }
         
+    }
+    /// <summary>
+    /// Atualiza a qtd de score do jogador
+    /// </summary>
+    void UpdateCristalScore(){
+        int newScoreCristal = PlayerPrefs.GetInt("CristalScore") + TimeBarPannel.scoreCristal;
+        PlayerPrefs.SetInt("CristalScore",newScoreCristal);
     }
     /// <summary>
     /// Reinicia a cena

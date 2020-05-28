@@ -14,10 +14,13 @@ public class TimeBarPannelCtlr : MonoBehaviour
     [SerializeField] Image imgTimeBar;
     [SerializeField] Text txtTimeCountBack;
     [SerializeField] Text txtTimeCount;
+    [SerializeField] Text txtCountCristalBlack;
+    [SerializeField] Text txtCountCristal;
     public int qtdTimeBar;
     private int qtdTImeBarOriginal;
     public float timer;
     public bool isCountTimer = true;
+    public int scoreCristal = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +28,7 @@ public class TimeBarPannelCtlr : MonoBehaviour
         imgTimeBar.sprite = sptTimeBars[qtdTimeBar];
         qtdTImeBarOriginal = qtdTimeBar;
         timer = 0;
+        IncreaseCristal(0);
     }
     /// <summary>
     /// Update is called every frame, if the MonoBehaviour is enabled.
@@ -58,5 +62,11 @@ public class TimeBarPannelCtlr : MonoBehaviour
         else{
             return false;
         }
+    }
+
+    public void IncreaseCristal(int point){
+        scoreCristal += point;
+        txtCountCristalBlack.text ="x"+scoreCristal;
+        txtCountCristal.text = "x"+scoreCristal;
     }
 }
