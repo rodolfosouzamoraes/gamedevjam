@@ -52,6 +52,7 @@ public class Boss : MonoBehaviour
     private void Attack()
     {
         animator.SetTrigger("Attack");
+        AudioManager.Instance.Play(Audio.Boss, Clip.Eagle, false);
         bossShooting.Shoot();
         timeToAttack = timeAux;
     }

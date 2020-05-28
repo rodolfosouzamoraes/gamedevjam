@@ -6,5 +6,7 @@
     Jump,
     Victory,
     GameOver,
-    SlowMotionRevert
+    SlowMotionRevert,
+    BossMusic,
+    Eagle
 }
