@@ -130,8 +130,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 3
-  timeToAttack: 4
+  speed: 15
+  timeToAttack: 1
 --- !u!114 &3492176000129062608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,9 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b250ea4a9e71843848c45ea86940bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stonesAmount: 5
-  stonePrefab: {fileID: 3734637626145462325, guid: f004a60c7d6909e41909afc641c2c419,
-    type: 3}
+  stonesAmount: 10
+  stonesPrefab:
+  - {fileID: 1997192573361708748, guid: 8f8c014870a4275498e4d8af39f62ec6, type: 3}
+  - {fileID: 3427394277459988316, guid: 9ae3de77a7fec25498fe04c5f7303a68, type: 3}
+  - {fileID: 8413586630382486074, guid: 32e62efd5e9378a43bbba0ec7e66cfaa, type: 3}
   aim: {fileID: 3492175998930474507}
 --- !u!1001 &3492176000482009398
 PrefabInstance:

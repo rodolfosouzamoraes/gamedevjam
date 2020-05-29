@@ -951,11 +951,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3492176000129062608, guid: 9867b8b75fd6045449b778ba0e4ebc50,
-        type: 3}
-      propertyPath: stonesAmount
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3492176000129062609, guid: 9867b8b75fd6045449b778ba0e4ebc50,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1011,21 +1006,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3492176000129062609, guid: 9867b8b75fd6045449b778ba0e4ebc50,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3492176000129062609, guid: 9867b8b75fd6045449b778ba0e4ebc50,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3492176000129062609, guid: 9867b8b75fd6045449b778ba0e4ebc50,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 3492176000129062622, guid: 9867b8b75fd6045449b778ba0e4ebc50,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -1046,24 +1026,9 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[3]
       value: 
       objectReference: {fileID: 545379521}
-    - target: {fileID: 3492176000129062622, guid: 9867b8b75fd6045449b778ba0e4ebc50,
-        type: 3}
-      propertyPath: speed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 3492176000129062622, guid: 9867b8b75fd6045449b778ba0e4ebc50,
-        type: 3}
-      propertyPath: timeToAttack
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3492176000129062623, guid: 9867b8b75fd6045449b778ba0e4ebc50,
         type: 3}
       propertyPath: m_Name
-      value: Boss
-      objectReference: {fileID: 0}
-    - target: {fileID: 3492176000129062623, guid: 9867b8b75fd6045449b778ba0e4ebc50,
-        type: 3}
-      propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
     m_RemovedComponents: []
