@@ -78,4 +78,11 @@ public class PlayerMoveCtlr : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         characterController.Move(moveDirection * Time.deltaTime);
     }
+
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.tag.Equals("Enemy")){
+            CanvasMainMng.Instance.ShowGameOverPannel();
+        }
+        
+    }
 }
