@@ -47,6 +47,7 @@ public class CanvasMainMng : MonoBehaviour
     {
         if(!isEndGame){
             CheckPauseButton();
+            AudioManager.Instance.ChangeVolume(Audio.Environment, TimeMng.Instance.timeScale);
         }
         
     }

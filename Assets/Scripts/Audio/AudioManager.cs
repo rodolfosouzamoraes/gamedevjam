@@ -35,14 +35,6 @@ public class AudioManager : MonoBehaviour
             Play(Audio.Environment, Clip.Music, true);
         }
     }
-    void Update()
-    {
-        if (!CanvasMainMng.Instance.isEndGame)
-        {
-            ChangeVolume(Audio.Environment, TimeMng.Instance.timeScale);
-        }
-
-    }
 
     public void Play(Audio audio, Clip clip, bool isLooping)
     {
@@ -56,7 +48,7 @@ public class AudioManager : MonoBehaviour
         sources[(int)audio].Stop();
     }
 
-    void ChangeVolume(Audio audio, float volume)
+    public void ChangeVolume(Audio audio, float volume)
     {
         sources[(int)audio].volume = volume;
     }

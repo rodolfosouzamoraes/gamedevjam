@@ -38,4 +38,14 @@ public class LevelsPannelCtlr : MonoBehaviour
         }
         
     }
+
+    public void LoadHistory(){
+        if(PlayerPrefs.GetInt("History")==0) {
+            PlayerPrefs.SetInt("History",1);
+            SceneManager.LoadScene(12);
+        }
+        else{
+            SceneManager.LoadScene(1);
+        }
+    }
 }
