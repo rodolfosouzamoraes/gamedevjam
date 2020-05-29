@@ -72,9 +72,11 @@ GameObject:
   - component: {fileID: 4609545435030231775}
   - component: {fileID: 4520203790680490043}
   - component: {fileID: 4523013563107389035}
+  - component: {fileID: 5014765918108598462}
+  - component: {fileID: 6427035975846831096}
   m_Layer: 0
   m_Name: Enemy Flying
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +130,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flyingSpeed: 5
   distance: 4
+--- !u!65 &5014765918108598462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606044258489665501}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6842198, y: 0.6573448, z: 0.529689}
+  m_Center: {x: -0.0033594072, y: 0.42663956, z: 0.073906094}
+--- !u!54 &6427035975846831096
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606044258489665501}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &4606127400685057547
 GameObject:
   m_ObjectHideFlags: 0
