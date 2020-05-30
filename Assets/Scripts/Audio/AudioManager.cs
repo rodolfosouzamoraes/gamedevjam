@@ -26,6 +26,18 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         sources = GetComponents<AudioSource>();
+
+        Init();
+
+        ChangeVolume(Audio.Environment, PlayerPrefs.GetFloat("Music"));
+        ChangeVolume(Audio.Player, PlayerPrefs.GetFloat("EffectsSound"));
+        ChangeVolume(Audio.Boss, PlayerPrefs.GetFloat("EffectsSound"));
+        ChangeVolume(Audio.Effect, PlayerPrefs.GetFloat("EffectsSound"));
+        ChangeVolume(Audio.EndGame, PlayerPrefs.GetFloat("EffectsSound"));
+    }
+
+    private void Init()
+    {
         if (SceneManager.GetActiveScene().name == "Level_10")
         {
             Play(Audio.Environment, Clip.BossMusic, true);
