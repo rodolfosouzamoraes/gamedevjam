@@ -57,8 +57,8 @@ MonoBehaviour:
   sptTimeBars:
   - {fileID: 21300000, guid: 1feff77f591fc57438119e27d485cf6f, type: 3}
   - {fileID: 21300000, guid: 1634bce96f65188499cdbb73b0993b20, type: 3}
-  - {fileID: 21300000, guid: 1d8e287f2d2c1c34887c7b35f6d8f744, type: 3}
   - {fileID: 21300000, guid: 385be6de561f3564c8714ff78483e8d5, type: 3}
+  - {fileID: 21300000, guid: 1d8e287f2d2c1c34887c7b35f6d8f744, type: 3}
   imgTimeBar: {fileID: 1500786709}
   txtTimeCountBack: {fileID: 747685802557802266}
   txtTimeCount: {fileID: 3881085808023202073}
