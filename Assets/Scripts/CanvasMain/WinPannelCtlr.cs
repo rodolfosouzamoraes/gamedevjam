@@ -10,6 +10,8 @@ public class WinPannelCtlr : MonoBehaviour
     [SerializeField] Text txtTimerNow;
     [SerializeField] Text txtTimerAfterBack;
     [SerializeField] Text txtTimerAfter;
+    [SerializeField] Text txtCrystalBack;
+    [SerializeField] Text txtCrystal;
     public void NextLevel(){
         SceneManager.LoadScene(CanvasMainMng.indexScene+1);
     }
@@ -22,6 +24,12 @@ public class WinPannelCtlr : MonoBehaviour
         txtTimerNow.text = txtTimerNowBack.text;
         txtTimerAfterBack.text = ConvertTimer(timerAfter);
         txtTimerAfter.text = txtTimerAfterBack.text;
+
+    }
+
+    public void SetCrystalText(float scoreCrystal){
+        txtCrystalBack.text = "x"+scoreCrystal;
+        txtCrystal.text = "x"+scoreCrystal;
 
     }
 

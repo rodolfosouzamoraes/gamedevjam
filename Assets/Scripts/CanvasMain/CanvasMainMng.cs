@@ -133,6 +133,7 @@ public class CanvasMainMng : MonoBehaviour
     void UpdateCristalScore(){
         int newScoreCristal = PlayerPrefs.GetInt("CristalScore") + TimeBarPannel.scoreCristal;
         PlayerPrefs.SetInt("CristalScore",newScoreCristal);
+        CanvasMainMng.WinPannel.SetCrystalText(TimeBarPannel.scoreCristal);
     }
     /// <summary>
     /// Reinicia a cena
