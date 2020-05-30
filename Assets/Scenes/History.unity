@@ -1216,8 +1216,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Tomas, acabou de sair da escola, \xE9 quase meio dia e ele segue caminhando
-    para sua casa quando ve um objeto estranho caido no meio da grama."
+  m_Text: Tomas, when its almost noon, was going home after school when he sees a
+    strange object lying on the grass.
 --- !u!222 &589639361
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1616,10 +1616,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ao virar a ampulheta, Tomas fixou seu olhar na areia caindo e sentiu uma
-    satisfa\xE7\xE3o enorme ao perceber que estava certo sobre os 10 segundos, mas
-    assim que voltou seu olhar para o mundo ao seu redor, percebeu que n\xE3o estava
-    mais ali e sim sobre ruinas de uma constru\xE7\xE3o antiga."
+  m_Text: When turning the hourglass, Tomas fixed his gaze in the falling sand and
+    felt great joy when he realized that he was right about the 10 seconds. But as
+    soon as he put his eyes in the world around him again, he realized he wasn't
+    where he was before. He is now standing over the ruins of a really ancient construction.
 --- !u!222 &891612351
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1992,8 +1992,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Ao se aproximar v\xEA que \xE9 uma ampulheta, feita de vidro, com arma\xE7\xE3o
-    de metal vermelho t\xE3o brilhante que Tomas podia ver seu reflexo."
+  m_Text: As he walks close to it, he realize it's a hourglass made from glass and
+    red metal so shiny that Tomas could see his own reflection on it.
 --- !u!222 &1039434919
 CanvasRenderer:
   m_ObjectHideFlags: 0
