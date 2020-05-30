@@ -14,6 +14,8 @@ public class MainMenuMng : MonoBehaviour
     {
         if(Instance == null){
             //PlayerPrefs.SetInt("CristalScore",1000);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             PlayerPrefs.SetInt("Level_1",1);
             PlayerPrefs.SetInt("IdBodyChosen_0",1);
             Time.timeScale = 1;

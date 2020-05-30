@@ -20,6 +20,7 @@ public class CanvasMainMng : MonoBehaviour
     {
         if(Instance==null){
             Time.timeScale = 1;
+            HideMouse();
             indexScene = SceneManager.GetActiveScene().buildIndex;
             HourglassPannel = FindObjectOfType<HourglassPannelCtlr>();
             TimeBarPannel = FindObjectOfType<TimeBarPannelCtlr>();
@@ -57,6 +58,7 @@ public class CanvasMainMng : MonoBehaviour
     void CheckPauseButton(){
         if(Input.GetButtonDown("Pause")){
             if(!isPauseActived){
+                ShowMouse();
                 isPauseActived = !isPauseActived;
                 ShowPausePannel();
                 Time.timeScale = 0;
@@ -76,6 +78,7 @@ public class CanvasMainMng : MonoBehaviour
     /// Desativa o painel de pause
     /// </summary>
     public void HidePausePannel(){
+        HideMouse();
         isPauseActived = !isPauseActived;
         Time.timeScale = 1;
         pnlPause.SetActive(false);
@@ -105,6 +108,7 @@ public class CanvasMainMng : MonoBehaviour
     /// Finaliza as interações no jogo
     /// </summary>
     void EndGame(){
+        ShowMouse();
         isEndGame = true;
         PlayerMng.GameObjectPlayer.SetActive(false);
         TimeBarPannel.isCountTimer = false;
@@ -155,5 +159,15 @@ public class CanvasMainMng : MonoBehaviour
 
     public void HideWin(){
         pnlWin.SetActive(false);
+    }
+
+    void HideMouse(){
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    void ShowMouse(){
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
