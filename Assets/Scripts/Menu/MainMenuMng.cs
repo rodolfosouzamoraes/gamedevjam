@@ -10,6 +10,7 @@ public class MainMenuMng : MonoBehaviour
 {
     public static MainMenuMng Instance;
     public static CharacterPannelCtlr CharacterPannel;
+    public static SettingsPannelCtlr SettingsPannel;
     void Start()
     {
         if(Instance == null){
@@ -22,9 +23,11 @@ public class MainMenuMng : MonoBehaviour
             }
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            
+            AudioManager.Instance.SetVolumes();
             Time.timeScale = 1;
             CharacterPannel = characterPnl.GetComponent<CharacterPannelCtlr>();
+            SettingsPannel = settingsPannel.GetComponent<SettingsPannelCtlr>();
+            SettingsPannel.SetSlidersVolume();
             ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
             Instance = this;
         }
@@ -36,13 +39,13 @@ public class MainMenuMng : MonoBehaviour
     [Header("Painéis do menu")]
     [SerializeField] List<PannelCtlr> pannels = new List<PannelCtlr>(); 
     [SerializeField] GameObject characterPnl;
+    [SerializeField] GameObject settingsPannel;
 
     /// <summary>
     /// Habilita o painel desejado
     /// </summary>
     /// <param name="pannel">Painel a ser aberto</param>
     public void ShowPannel(PannelCtlr pannel){
-        //Debug.Log("Cliquei");
         var pannelShow = pannels.FirstOrDefault(p => p.Compare(pannel));
         if(pannelShow!=null){
             foreach(PannelCtlr pnl in pannels){

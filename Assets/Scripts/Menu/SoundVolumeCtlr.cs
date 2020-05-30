@@ -6,12 +6,7 @@ public class SoundVolumeCtlr : MonoBehaviour
     [SerializeField] private Scrollbar soundEffects;
     [SerializeField] private Scrollbar music;
 
-    private void Awake()
-    {
-        SetScrollbarValues();
-    }
-
-    private void SetScrollbarValues()
+    public void SetScrollbarValues()
     {
         soundEffects.value = PlayerPrefs.GetFloat("EffectsSound");
         music.value = PlayerPrefs.GetFloat("Music");
@@ -21,5 +16,7 @@ public class SoundVolumeCtlr : MonoBehaviour
     {
         PlayerPrefs.SetFloat("EffectsSound", soundEffects.value);
         PlayerPrefs.SetFloat("Music", music.value);
+        AudioManager.Instance.ChangeVolume(Audio.Environment, music.value);
+        
     }
 }

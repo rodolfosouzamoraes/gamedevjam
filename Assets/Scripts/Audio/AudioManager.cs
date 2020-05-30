@@ -29,6 +29,9 @@ public class AudioManager : MonoBehaviour
 
         Init();
 
+        SetVolumes();
+    }
+    public void SetVolumes(){
         ChangeVolume(Audio.Environment, PlayerPrefs.GetFloat("Music"));
         ChangeVolume(Audio.Player, PlayerPrefs.GetFloat("EffectsSound"));
         ChangeVolume(Audio.Boss, PlayerPrefs.GetFloat("EffectsSound"));
