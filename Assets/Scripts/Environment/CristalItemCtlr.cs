@@ -8,6 +8,7 @@ public class CristalItemCtlr : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         CanvasMainMng.TimeBarPannel.IncreaseCristal(score);
+        AudioManager.Instance.Play(Audio.Effect,Clip.Crystal,false);
         Destroy(gameObject);  
     }
 }

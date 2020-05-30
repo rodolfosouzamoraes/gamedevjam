@@ -8,5 +8,6 @@
     GameOver,
     SlowMotionRevert,
     BossMusic,
-    Eagle
+    Eagle,
+    Crystal
 }
