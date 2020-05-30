@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SoundVolumeCtlr : MonoBehaviour
 {
-    [SerializeField] private Scrollbar globalSound;
-    [SerializeField] private Scrollbar effectsSound;
+    [SerializeField] private Scrollbar soundEffects;
+    [SerializeField] private Scrollbar music;
 
     private void Awake()
     {
@@ -13,14 +13,13 @@ public class SoundVolumeCtlr : MonoBehaviour
 
     private void SetScrollbarValues()
     {
-        globalSound.value = PlayerPrefs.GetFloat("GlobalSound");
-        effectsSound.value = PlayerPrefs.GetFloat("EffectsSound");
+        soundEffects.value = PlayerPrefs.GetFloat("EffectsSound");
+        music.value = PlayerPrefs.GetFloat("Music");
     }
 
     public void SaveSound()
     {
-        PlayerPrefs.SetFloat("GlobalSound", globalSound.value);
-        PlayerPrefs.SetFloat("EffectsSound", effectsSound.value);
-        AudioListener.volume = PlayerPrefs.GetFloat("GlobalSound");
+        PlayerPrefs.SetFloat("EffectsSound", soundEffects.value);
+        PlayerPrefs.SetFloat("Music", music.value);
     }
 }

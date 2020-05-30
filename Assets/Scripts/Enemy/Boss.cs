@@ -33,10 +33,16 @@ public class Boss : MonoBehaviour
 
         if (HasReachedWaypoint())
         {
+            if(index == 1 || index == 3)
+            {
+                AudioManager.Instance.Play(Audio.Boss, Clip.Eagle, false);
+            }
+
             index++;
             index %= waypoints.Length;
             rotation += 90;
             transform.rotation = Quaternion.Euler(transform.eulerAngles.x, rotation, transform.eulerAngles.z);
+
         }
     }
 
@@ -55,7 +61,6 @@ public class Boss : MonoBehaviour
 
     private void Attack()
     {
-        AudioManager.Instance.Play(Audio.Boss, Clip.Eagle, false);
         bossShooting.Shoot();
         timeToAttack = timeAux;
     }
