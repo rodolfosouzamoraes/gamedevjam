@@ -8,6 +8,7 @@ public class HourglassPannelCtlr : MonoBehaviour
 {
     [Header("Texto da contagem do tempo")]
     [SerializeField] Text txtTime;
+    [SerializeField] Text txtTimeBack;
     [Header("Imagem da ampulheta")]
     [SerializeField] Image imgHourglass;
 
@@ -26,6 +27,7 @@ public class HourglassPannelCtlr : MonoBehaviour
     {
         timeSeconds = time;
         txtTime.text = timeSeconds.ToString();
+        txtTimeBack.text = txtTime.text;
         ActiveOrDesactiveElements(true);
         StartScoreTime();
     }
@@ -57,6 +59,7 @@ public class HourglassPannelCtlr : MonoBehaviour
             if (timeSeconds >= 0)
             {
                 txtTime.text = timeSeconds.ToString();
+                txtTimeBack.text = txtTime.text;
             }
             else
             {
@@ -71,6 +74,7 @@ public class HourglassPannelCtlr : MonoBehaviour
     public void ActiveOrDesactiveElements(bool value)
     {
         txtTime.enabled = value;
+        txtTimeBack.enabled = value;
         imgHourglass.enabled = value;
     }
 }
