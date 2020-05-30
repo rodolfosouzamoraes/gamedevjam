@@ -6,7 +6,7 @@ public class BossShooting : MonoBehaviour
     private int index = 0;
     private List<GameObject> stones = new List<GameObject>();
     [SerializeField] private int stonesAmount = 5;
-    [SerializeField] private GameObject stonePrefab;
+    [SerializeField] private GameObject[] stonesPrefab;
     [SerializeField] private Transform aim;
 
     private void Awake()
@@ -18,7 +18,7 @@ public class BossShooting : MonoBehaviour
     {
         for (int i = 0; i < stonesAmount; i++)
         {
-            GameObject stone = Instantiate(stonePrefab, aim.position, aim.localRotation, aim);
+            GameObject stone = Instantiate(stonesPrefab[i % stonesPrefab.Length], aim.position, aim.localRotation);
             stone.SetActive(false);
             stones.Add(stone);
         }
@@ -31,15 +31,16 @@ public class BossShooting : MonoBehaviour
         if (!stone.activeSelf)
         {
             stone.SetActive(true);
+            ReturnStoneToAim(stone.transform);
         }
 
         index++;
         index %= stones.Count;
     }
 
-    public void ReturnStoneToAim(GameObject stone)
+    public void ReturnStoneToAim(Transform stone)
     {
-        stone.transform.position = aim.position;
-        stone.transform.localRotation = aim.localRotation;
+        stone.position = aim.position;
+        stone.localRotation = aim.localRotation;
     }
 }

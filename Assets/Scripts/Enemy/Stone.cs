@@ -7,12 +7,12 @@ public class Stone : MonoBehaviour
     private float timeAux;
     private bool isReadyToCountdown = false;
     private bool isShooting = false;
+    private Vector3 shootingDirection;
     [SerializeField] private float force = 20f;
     [SerializeField] private float timeToDisable = 5f;
 
     private void Awake()
     {
-        bossShooting = transform.root.GetComponent<BossShooting>();
         rb = GetComponent<Rigidbody>();
         timeAux = timeToDisable;
     }
@@ -20,6 +20,7 @@ public class Stone : MonoBehaviour
     private void OnEnable()
     {
         isReadyToCountdown = true;
+        shootingDirection = GameObject.FindGameObjectWithTag("Boss").transform.forward;
         isShooting = true;
     }
 
@@ -28,7 +29,6 @@ public class Stone : MonoBehaviour
         timeToDisable = timeAux;
         isReadyToCountdown = false;
         isShooting = false;
-        bossShooting.ReturnStoneToAim(gameObject);
         rb.velocity = Vector3.zero;
     }
 
@@ -62,7 +62,7 @@ public class Stone : MonoBehaviour
 
     public void Shoot()
     {
-        rb.velocity = transform.parent.forward * force * TimeMng.Instance.timeScale;
+        rb.velocity = shootingDirection * force * TimeMng.Instance.timeScale;
     }
 
     private void CheckCountdown()
