@@ -13,11 +13,16 @@ public class MainMenuMng : MonoBehaviour
     void Start()
     {
         if(Instance == null){
-            //PlayerPrefs.SetInt("CristalScore",1000);
+            if(PlayerPrefs.GetInt("FirstGame") == 0){
+                PlayerPrefs.SetInt("Level_1",1);
+                PlayerPrefs.SetInt("IdBodyChosen_0",1);
+                PlayerPrefs.SetFloat("EffectsSound",1);
+                PlayerPrefs.SetFloat("Music",1);
+                PlayerPrefs.SetInt("FirstGame",1);
+            }
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            PlayerPrefs.SetInt("Level_1",1);
-            PlayerPrefs.SetInt("IdBodyChosen_0",1);
+            
             Time.timeScale = 1;
             CharacterPannel = characterPnl.GetComponent<CharacterPannelCtlr>();
             ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
