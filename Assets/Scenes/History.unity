@@ -1992,7 +1992,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: As he walks close to it, he realize it's a hourglass made from glass and
+  m_Text: As he walks close to it, he realizes it's a hourglass made from glass and
     red metal so shiny that Tomas could see his own reflection on it.
 --- !u!222 &1039434919
 CanvasRenderer:
