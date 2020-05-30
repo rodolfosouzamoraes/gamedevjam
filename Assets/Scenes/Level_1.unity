@@ -330,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 8920917333228637957, guid: 66fb2c3a57a46b84d96b922b9677d635,
         type: 3}
       propertyPath: message
-      value: "Cuidado com o inimigo a frente, se ele te pegar ser\xE1 o seu fim!"
+      value: Beware of the enemy ahead, if it catches you it will be your end!
       objectReference: {fileID: 0}
     - target: {fileID: 8920917333228638200, guid: 66fb2c3a57a46b84d96b922b9677d635,
         type: 3}
@@ -457,7 +457,7 @@ PrefabInstance:
     - target: {fileID: 8920917333228637957, guid: 66fb2c3a57a46b84d96b922b9677d635,
         type: 3}
       propertyPath: message
-      value: Muinto bem, agora entre no portal!
+      value: Very well, now enter the portal!
       objectReference: {fileID: 0}
     - target: {fileID: 8920917333228638200, guid: 66fb2c3a57a46b84d96b922b9677d635,
         type: 3}
@@ -916,7 +916,7 @@ PrefabInstance:
     - target: {fileID: 8920917333228637957, guid: 66fb2c3a57a46b84d96b922b9677d635,
         type: 3}
       propertyPath: message
-      value: "Use AWSD para mover o player e espa\xE7o para pular!"
+      value: Use AWSD in order to move the player e press space to jump!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66fb2c3a57a46b84d96b922b9677d635, type: 3}
@@ -3673,6 +3673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 42.306805
+      objectReference: {fileID: 0}
+    - target: {fileID: 8920917333228637957, guid: 66fb2c3a57a46b84d96b922b9677d635,
+        type: 3}
+      propertyPath: message
+      value: Press E in order to stop the time!
       objectReference: {fileID: 0}
     - target: {fileID: 8988422735811619888, guid: 66fb2c3a57a46b84d96b922b9677d635,
         type: 3}
