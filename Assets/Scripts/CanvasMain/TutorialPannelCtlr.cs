@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class TutorialPannelCtlr : MonoBehaviour
 {
     [SerializeField] Text txtMessage;
+    [SerializeField] Text txtMessageBack;
 
     public void SetMessage(string message){
         txtMessage.text = message;
+        txtMessageBack.text = message;
     }
 }
