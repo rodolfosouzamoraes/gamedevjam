@@ -24,7 +24,7 @@ public class Boss : MonoBehaviour
         FlyAround();
         CheckAttackCountdown();
         animator.speed = TimeMng.Instance.timeScale;
-        AudioManager.Instance.ChangeVolume(Audio.Boss, TimeMng.Instance.timeScale * PlayerPrefs.GetFloat("EffectsSound"));
+        AudioManager.Instance.ChangeVolume(Audio.Boss, TimeMng.Instance.timeScale * DBMng.EffectVolume());
     }
 
     private void FlyAround()

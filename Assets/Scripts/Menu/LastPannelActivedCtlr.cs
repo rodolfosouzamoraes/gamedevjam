@@ -11,6 +11,6 @@ public class LastPannelActivedCtlr : MonoBehaviour
     /// </summary>
     void OnEnable()
     {
-        PlayerPrefs.SetInt("LastPannel", idPannel);
+        DBMng.SetLastPannel(idPannel);
     }
 }

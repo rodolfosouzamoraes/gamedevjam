@@ -19,7 +19,7 @@ public class CharacterPannelCtlr : MonoBehaviour
     }
 
     public void UpdateCristalScore(){
-        cristalScore = PlayerPrefs.GetInt("CristalScore");
+        cristalScore = DBMng.CrystalScore();
         txtCristalScoreBack.text = "x"+cristalScore;
         txtCristalScore.text = "x"+cristalScore;
     }

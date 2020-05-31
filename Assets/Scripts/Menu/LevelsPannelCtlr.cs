@@ -18,9 +18,10 @@ public class LevelsPannelCtlr : MonoBehaviour
     {
         int count = 0;
         foreach(ItemLevel itemLevel in itemsLevel){
-            if(PlayerPrefs.GetInt("Level_"+(count+1)) == 1){
+            
+            if(DBMng.StatusLevel(count+1) == 1){
                 itemLevel.sptLocked.SetActive(false);
-                var timer = PlayerPrefs.GetFloat("Level_"+(count+1)+"_Timer");
+                var timer = DBMng.LevelIndexTimer(count+1);
                 var ts = TimeSpan.FromSeconds(timer);
                 itemLevel.txtTimerLevel.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
                 itemLevel.txtTimerLevelBack.text = itemLevel.txtTimerLevel.text;
@@ -33,15 +34,15 @@ public class LevelsPannelCtlr : MonoBehaviour
         }
     }
     public void LoadLevel(int index){
-        if(PlayerPrefs.GetInt("Level_"+index) == 1){
+        if(DBMng.StatusLevel(index) == 1){
             SceneManager.LoadScene(index);
         }
         
     }
 
     public void LoadHistory(){
-        if(PlayerPrefs.GetInt("History")==0) {
-            PlayerPrefs.SetInt("History",1);
+        if(DBMng.StatusHitory()==0) {
+            DBMng.UnlockHistory();
             SceneManager.LoadScene(12);
         }
         else{

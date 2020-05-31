@@ -48,7 +48,7 @@ public class CanvasMainMng : MonoBehaviour
     {
         if(!isEndGame){
             CheckPauseButton();
-            AudioManager.Instance.ChangeVolume(Audio.Environment, TimeMng.Instance.timeScale * PlayerPrefs.GetFloat("Music"));
+            AudioManager.Instance.ChangeVolume(Audio.Environment, TimeMng.Instance.timeScale * DBMng.MusicVolume());
         }
         
     }
@@ -89,7 +89,7 @@ public class CanvasMainMng : MonoBehaviour
     public void ShowWinPannel(){
         AudioManager.Instance.LowerVolumes();
         AudioManager.Instance.Play(Audio.EndGame, Clip.Victory, false);
-        PlayerPrefs.SetInt("Level_"+(indexScene+1),1);
+        DBMng.UnlockNextLevel(indexScene);
         EndGame();
         UpdateTimerLevel();
         UpdateCristalScore();
@@ -117,9 +117,9 @@ public class CanvasMainMng : MonoBehaviour
     /// Atualiza o tempo gasto ao completar a fase se o mesmo for maior que o anterior
     /// </summary>
     void UpdateTimerLevel(){
-        float timerLevel = PlayerPrefs.GetFloat("Level_"+(indexScene)+"_Timer") == 0 ?  Mathf.Infinity : PlayerPrefs.GetFloat("Level_"+(indexScene)+"_Timer");
+        float timerLevel = DBMng.LevelIndexTimer(indexScene) == 0 ?  Mathf.Infinity : DBMng.LevelIndexTimer(indexScene);
         if(timerLevel>TimeBarPannel.timer){
-            PlayerPrefs.SetFloat("Level_"+(indexScene)+"_Timer",TimeBarPannel.timer);
+            DBMng.SetLevelIndexTimer(indexScene,TimeBarPannel.timer);
             WinPannel.SetTimerText(TimeBarPannel.timer,TimeBarPannel.timer);
         }
         else{
@@ -131,8 +131,8 @@ public class CanvasMainMng : MonoBehaviour
     /// Atualiza a qtd de score do jogador
     /// </summary>
     void UpdateCristalScore(){
-        int newScoreCristal = PlayerPrefs.GetInt("CristalScore") + TimeBarPannel.scoreCristal;
-        PlayerPrefs.SetInt("CristalScore",newScoreCristal);
+        int newScoreCristal = DBMng.CrystalScore() + TimeBarPannel.scoreCristal;
+        DBMng.SetCrystalScore(newScoreCristal);
         CanvasMainMng.WinPannel.SetCrystalText(TimeBarPannel.scoreCristal);
     }
     /// <summary>

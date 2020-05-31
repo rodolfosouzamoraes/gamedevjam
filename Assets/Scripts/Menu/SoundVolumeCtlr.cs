@@ -8,14 +8,14 @@ public class SoundVolumeCtlr : MonoBehaviour
 
     public void SetScrollbarValues()
     {
-        soundEffects.value = PlayerPrefs.GetFloat("EffectsSound");
-        music.value = PlayerPrefs.GetFloat("Music");
+        soundEffects.value = DBMng.EffectVolume();
+        music.value = DBMng.MusicVolume();
     }
 
     public void SaveSound()
     {
-        PlayerPrefs.SetFloat("EffectsSound", soundEffects.value);
-        PlayerPrefs.SetFloat("Music", music.value);
+        DBMng.SetEffectVolume(soundEffects.value);
+        DBMng.SetMusicVolume(music.value);
         AudioManager.Instance.ChangeVolume(Audio.Environment, music.value);
         
     }

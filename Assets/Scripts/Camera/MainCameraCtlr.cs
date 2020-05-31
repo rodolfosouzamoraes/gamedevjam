@@ -13,7 +13,7 @@ public class MainCameraCtlr : MonoBehaviour
     /// </summary>
     void Start()
     {
-        speedRotation = PlayerPrefs.GetFloat("MouseSensibility");
+        speedRotation = DBMng.MouseSensibility();
     }
     void FixedUpdate()
     {

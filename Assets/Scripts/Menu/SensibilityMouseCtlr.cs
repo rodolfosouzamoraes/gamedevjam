@@ -8,12 +8,12 @@ public class SensibilityMouseCtlr : MonoBehaviour
 
     public void SetScrollbarValue()
     {
-        sensibility.value = (PlayerPrefs.GetFloat("MouseSensibility")/50)-1;
+        sensibility.value = (DBMng.MouseSensibility()/50)-1;
     }
 
     public void SaveSensibility()
     {
-        PlayerPrefs.SetFloat("MouseSensibility", (sensibility.value+1)*50);
+        DBMng.SetMouseSensibility((sensibility.value+1)*50);
         
     }
 }

@@ -32,11 +32,11 @@ public class AudioManager : MonoBehaviour
         SetVolumes();
     }
     public void SetVolumes(){
-        ChangeVolume(Audio.Environment, PlayerPrefs.GetFloat("Music"));
-        ChangeVolume(Audio.Player, PlayerPrefs.GetFloat("EffectsSound"));
-        ChangeVolume(Audio.Boss, PlayerPrefs.GetFloat("EffectsSound"));
-        ChangeVolume(Audio.Effect, PlayerPrefs.GetFloat("EffectsSound"));
-        ChangeVolume(Audio.EndGame, PlayerPrefs.GetFloat("EffectsSound"));
+        ChangeVolume(Audio.Environment, DBMng.MusicVolume());
+        ChangeVolume(Audio.Player, DBMng.EffectVolume());
+        ChangeVolume(Audio.Boss, DBMng.EffectVolume());
+        ChangeVolume(Audio.Effect, DBMng.EffectVolume());
+        ChangeVolume(Audio.EndGame, DBMng.EffectVolume());
     }
 
     private void Init()

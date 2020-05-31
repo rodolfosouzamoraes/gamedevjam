@@ -14,14 +14,7 @@ public class MainMenuMng : MonoBehaviour
     void Start()
     {
         if(Instance == null){
-            if(PlayerPrefs.GetInt("FirstGame") == 0){
-                PlayerPrefs.SetInt("Level_1",1);
-                PlayerPrefs.SetInt("IdBodyChosen_0",1);
-                PlayerPrefs.SetFloat("EffectsSound",1);
-                PlayerPrefs.SetFloat("Music",1);
-                PlayerPrefs.SetInt("FirstGame",1);
-                PlayerPrefs.SetFloat("MouseSensibility", 50);
-            }
+            DBMng.FirstGame();
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             AudioManager.Instance.SetVolumes();
@@ -30,7 +23,7 @@ public class MainMenuMng : MonoBehaviour
             SettingsPannel = settingsPannel.GetComponent<SettingsPannelCtlr>();
             SettingsPannel.SetSlidersVolume();
             SettingsPannel.SetSensibilityMouse();
-            ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
+            ShowPannel(pannels[DBMng.LastPannel()]);
             Instance = this;
         }
         else{

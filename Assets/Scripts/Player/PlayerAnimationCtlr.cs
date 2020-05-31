@@ -9,7 +9,7 @@ public class PlayerAnimationCtlr : MonoBehaviour
     int idBody = 0;
     void Start()
     {
-        idBody = PlayerPrefs.GetInt("IdBodyChosen");
+        idBody = DBMng.CharacterChosen();
         foreach(GameObject body in bodys){
             body.SetActive(false);
         }

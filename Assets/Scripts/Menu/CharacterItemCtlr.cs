@@ -17,7 +17,7 @@ public class CharacterItemCtlr : MonoBehaviour
     /// </summary>
     void Start()
     {
-        if(PlayerPrefs.GetInt("IdBodyChosen_"+idCharacter)==0){
+        if(DBMng.StatusCharacter(idCharacter)==0){
             txtPriceItemBack.text = "x"+price;
             txtPriceItem.text = "x"+price;
         }
@@ -30,16 +30,16 @@ public class CharacterItemCtlr : MonoBehaviour
     public void BuyCharacter(){
         if(MainMenuMng.CharacterPannel.cristalScore>=price){
             int newCristalScore = MainMenuMng.CharacterPannel.cristalScore-price;
-            PlayerPrefs.SetInt("CristalScore",newCristalScore);
-            PlayerPrefs.SetInt("IdBodyChosen_"+idCharacter,1);
+            DBMng.SetCrystalScore(newCristalScore);
+            DBMng.UnlockCharacter(idCharacter);
             bottom.SetActive(false);
             MainMenuMng.CharacterPannel.UpdateCristalScore();
         }
     }
 
     public void SelectCharacter(PannelCtlr pannel){
-        if(PlayerPrefs.GetInt("IdBodyChosen_"+idCharacter)==1){
-            PlayerPrefs.SetInt("IdBodyChosen",idCharacter);
+        if(DBMng.StatusCharacter(idCharacter)==1){
+            DBMng.SelectCharacter(idCharacter);
             MainMenuMng.Instance.ShowPannel(pannel);
         }
     }
