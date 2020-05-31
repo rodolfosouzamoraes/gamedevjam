@@ -296,7 +296,7 @@ MonoBehaviour:
   walkRadius: 8
   distanceNewDestination: 0.5
   walkingSpeed: 3.5
-  chasingSpeed: 6.5
+  chasingSpeed: 5
 --- !u!114 &1605041141617943637
 MonoBehaviour:
   m_ObjectHideFlags: 0

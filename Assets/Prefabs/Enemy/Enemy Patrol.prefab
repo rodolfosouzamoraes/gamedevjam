@@ -1196,7 +1196,7 @@ MonoBehaviour:
   - {fileID: 0}
   distanceNewDestination: 0.5
   walkingSpeed: 3.5
-  chasingSpeed: 6.5
+  chasingSpeed: 5
 --- !u!114 &150577920122225741
 MonoBehaviour:
   m_ObjectHideFlags: 0

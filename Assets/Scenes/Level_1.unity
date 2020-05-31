@@ -2707,16 +2707,6 @@ PrefabInstance:
       propertyPath: wayPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1679539958}
-    - target: {fileID: 9041722181948639312, guid: 7f931d4b5c97d194d8726ddf5acdd440,
-        type: 3}
-      propertyPath: walkingSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041722181948639312, guid: 7f931d4b5c97d194d8726ddf5acdd440,
-        type: 3}
-      propertyPath: chasingSpeed
-      value: 3.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f931d4b5c97d194d8726ddf5acdd440, type: 3}
 --- !u!1001 &1878415540271850489
