@@ -20,6 +20,7 @@ public class MainMenuMng : MonoBehaviour
                 PlayerPrefs.SetFloat("EffectsSound",1);
                 PlayerPrefs.SetFloat("Music",1);
                 PlayerPrefs.SetInt("FirstGame",1);
+                PlayerPrefs.SetFloat("MouseSensibility", 50);
             }
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -28,6 +29,7 @@ public class MainMenuMng : MonoBehaviour
             CharacterPannel = characterPnl.GetComponent<CharacterPannelCtlr>();
             SettingsPannel = settingsPannel.GetComponent<SettingsPannelCtlr>();
             SettingsPannel.SetSlidersVolume();
+            SettingsPannel.SetSensibilityMouse();
             ShowPannel(pannels[PlayerPrefs.GetInt("LastPannel")]);
             Instance = this;
         }

@@ -6,8 +6,15 @@ using UnityEngine;
 /// </summary>
 public class MainCameraCtlr : MonoBehaviour
 {
-    [Header("Velocidade de rotação")]
-    [SerializeField] float speedRotation;
+    float speedRotation;
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    void Start()
+    {
+        speedRotation = PlayerPrefs.GetFloat("MouseSensibility");
+    }
     void FixedUpdate()
     {
         if(!CanvasMainMng.Instance.isEndGame){
